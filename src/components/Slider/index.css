@@ -9,6 +9,3 @@
   object-fit: cover;
   transition: transform 1s;
 }
-.current-image {
-  transform: translateY(-50%);
-}

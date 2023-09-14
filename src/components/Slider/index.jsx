@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./index.css";
-import ClickableBox from "./ClickableBox";
+import ClickableBox from "../ClickableBox";
 
 function Slider() {
   const images = [
