@@ -1,10 +1,12 @@
 .box-container {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 40px;
+  left: 100px;
   width: 100px;
   height: 100px;
   overflow: hidden;
+  padding: 10px;
+  border: 1px solid green;
 }
 .next-image {
   width: 100%;

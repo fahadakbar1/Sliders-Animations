@@ -13,8 +13,8 @@ function ClickableBox({ image, onClick }) {
 
   return (
     <div className="box-container" onClick={onClick}>
-      <img src={image} alt="next" className="next-image" />
       <div className={`border-animation state-${animationState}`}></div>
+      <img src={image} alt="next" className="next-image" />
     </div>
   );
 }
