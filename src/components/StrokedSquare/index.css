@@ -1,0 +1,81 @@
+.square {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+/* top border */
+.square::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: black;
+    animation: drawTop 1s 0s forwards;
+}
+/* right border */
+.square::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 0;
+    width: 2px;
+    background: black;
+    animation: drawRight 1s 1s forwards;
+}
+/* bottom border */
+.square .border-horizontal {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: black;
+    animation: drawBottom 1s 2s forwards;
+}
+/* left border */
+.square .border-vertical {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 2px;
+    background: black;
+    animation: drawLeft 1s 3s forwards;
+}
+@keyframes drawTop {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes drawRight {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+    }
+}
+@keyframes drawBottom {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes drawLeft {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+    }
+}
