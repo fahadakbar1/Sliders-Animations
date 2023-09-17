@@ -1,7 +1,9 @@
 .square {
-    width: 100px;
-    height: 100px;
-    position: relative;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    top: -15px;
+    left: -15px;
 }
 /* top border */
 .square::before {
@@ -10,8 +12,8 @@
     top: 0;
     left: 0;
     width: 0;
-    height: 2px;
-    background: black;
+    height: 5px;
+    background: White;
     animation: drawTop 1s 0s forwards;
 }
 /* right border */
@@ -21,8 +23,8 @@
     top: 0;
     right: 0;
     height: 0;
-    width: 2px;
-    background: black;
+    width: 5px;
+    background: white;
     animation: drawRight 1s 1s forwards;
 }
 /* bottom border */
@@ -32,8 +34,8 @@
     bottom: 0;
     right: 0;
     width: 0;
-    height: 2px;
-    background: black;
+    height: 5px;
+    background: white;
     animation: drawBottom 1s 2s forwards;
 }
 /* left border */
@@ -43,8 +45,8 @@
     bottom: 0;
     left: 0;
     height: 0;
-    width: 2px;
-    background: black;
+    width: 5px;
+    background: white;
     animation: drawLeft 1s 3s forwards;
 }
 @keyframes drawTop {

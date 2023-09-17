@@ -4,9 +4,6 @@
   left: 100px;
   width: 100px;
   height: 100px;
-  overflow: hidden;
-  padding: 10px;
-  border: 1px solid green;
   z-index: 1;
 }
 .next-image {
