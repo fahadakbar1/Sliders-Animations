@@ -19,10 +19,14 @@ function Slider() {
   const nextImage = () => {
     const topImageDiv = document.querySelector('.top-image');
     const bottomImageDiv = document.querySelector('.bottom-image');
+    const boxTopImageDiv = document.querySelector('.box-top-image');
+  const boxBottomImageDiv = document.querySelector('.box-bottom-image');
   
     // Apply the slide-out animation
     topImageDiv.classList.add('slide-out');
     bottomImageDiv.classList.add('slide-out');
+    boxTopImageDiv.classList.add('slide-out');
+  boxBottomImageDiv.classList.add('slide-out');
   
     setTimeout(() => {
       // Change the image after the animation ends
@@ -42,6 +46,21 @@ function Slider() {
       // Remove no-transition class to bring back the animation for next time
       topImageDiv.classList.remove('no-transition');
       bottomImageDiv.classList.remove('no-transition');
+
+
+      boxTopImageDiv.classList.add('no-transition');
+      boxBottomImageDiv.classList.add('no-transition');
+      boxTopImageDiv.style.backgroundImage = `url(${images[(index + 1) % images.length]})`;
+      boxBottomImageDiv.style.backgroundImage = `url(${images[(index + 1) % images.length]})`;
+      boxTopImageDiv.classList.remove('slide-out');
+      boxBottomImageDiv.classList.remove('slide-out');
+      
+      // Force a reflow, this is to make sure the next operation will be a separate render
+      void boxTopImageDiv.offsetWidth;
+
+      // Remove no-transition class to bring back the animation for next time
+      boxTopImageDiv.classList.remove('no-transition');
+      boxBottomImageDiv.classList.remove('no-transition');
     }, 1000); // 1 second because that's our transition duration
 
     setStrokeKey(strokeRef.current + 1);
