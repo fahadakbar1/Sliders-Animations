@@ -1,38 +1,40 @@
-/* src/App.css */
 .slider {
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    height: 300px; /* Adjust as needed */
+    height: 820px; 
     position: relative;
 }
 
 .slider-image {
     position: absolute;
-    transition: transform 3s ease;
-    width:400px
+    transition: transform 3s ease; 
+    width: 300px;
+    height: 500px;
+    transform-origin: center bottom; /* This is crucial to get the rotation around the bottom center */
 }
 
 .slider-image img {
-    max-height: 100%;
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
     display: block;
+    object-fit: cover; 
 }
 
 .slider-image.center {
-    transform: translateX(0);
+    transform: translateX(0) rotate(0deg);
     z-index: 2;
 }
 
 .slider-image.left {
-    transform: translateX(-130%) rotate(-15deg);
-    margin-top: 130px;
+    margin-top: 115px;
+    transform: translateX(-130%) rotate(-15deg); /* Adjusted for 2D rotation */
     z-index: 1;
 }
 
 .slider-image.right {
-    transform: translateX(130%) rotate(15deg);
-    margin-top: 130px;
+    margin-top: 115px;
+    transform: translateX(130%) rotate(15deg); /* Adjusted for 2D rotation */
     z-index: 1;
 }
