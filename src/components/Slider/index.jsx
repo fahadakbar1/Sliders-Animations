@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./index.css";
 import ClickableBox from "../ClickableBox";
 
@@ -9,6 +9,12 @@ function Slider() {
     "https://plus.unsplash.com/premium_photo-1669550788590-859353c91996?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmF5JTIwb2YlMjBsaWdodHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
   ];
   const [index, setIndex] = useState(0);
+  const [strokeKey, setStrokeKey] = useState(0); // Moved from StrokedSquare
+  const strokeRef = useRef(strokeKey); // useRef to keep track of strokeKey in useEffect
+
+  useEffect(() => {
+    strokeRef.current = strokeKey; // Update strokeRef whenever strokeKey changes
+  }, [strokeKey]);
 
   const nextImage = () => {
     const topImageDiv = document.querySelector('.top-image');
@@ -37,12 +43,14 @@ function Slider() {
       topImageDiv.classList.remove('no-transition');
       bottomImageDiv.classList.remove('no-transition');
     }, 1000); // 1 second because that's our transition duration
+
+    setStrokeKey(strokeRef.current + 1);
 };
 
   useEffect(() => {
     const interval = setInterval(nextImage, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [index]);
 
   return (
     <div className="slider-container">
@@ -62,6 +70,7 @@ function Slider() {
     <ClickableBox
       image={images[(index + 1) % images.length]}
       onClick={nextImage}
+      strokeKey={strokeKey} 
     />
   </div>
   );
