@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import "./index.css";
 import { useSwipeable } from 'react-swipeable';
@@ -15,25 +14,28 @@ function SecondSlider() {
 
     const handlers = useSwipeable({
         onSwipedLeft: () => {
-            if (currentIndex < images.length - 1) {
-                setCurrentIndex(currentIndex + 1);
-            }
+            setCurrentIndex(prev => (prev + 1) % images.length);
         },
         onSwipedRight: () => {
-            if (currentIndex > 0) {
-                setCurrentIndex(currentIndex - 1);
-            }
+            setCurrentIndex(prev => (prev - 1 + images.length) % images.length);
         },
         preventDefaultTouchmoveEvent: true,
         trackMouse: true
     });
 
+    // This gets the correct images based on current index
+    const displayedImages = [
+        images[(currentIndex - 1 + images.length) % images.length],
+        images[currentIndex],
+        images[(currentIndex + 1) % images.length]
+    ];
+
     return (
         <div {...handlers} className="slider">
-            {images.map((image, index) => (
+            {displayedImages.map((image, index) => (
                 <div
-                    key={index}
-                    className={`slider-image ${index < currentIndex ? 'left' : index > currentIndex ? 'right' : 'center'}`}
+                    key={image}
+                    className={`slider-image ${index === 0 ? 'left' : index === 2 ? 'right' : 'center'}`}
                 >
                     <img src={image} alt={`Slider ${index}`} />
                 </div>
