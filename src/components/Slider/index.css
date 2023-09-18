@@ -38,14 +38,6 @@
   background-position: bottom;
 }
 
-/* .top-image {
-  transform-origin: bottom center;
-}
-
-.bottom-image {
-  transform-origin: top center;
-} */
-
 .slider-container .image-part.top-image.slide-out {
   transform: translateY(-100%); /* Slide the top part upwards */
 }

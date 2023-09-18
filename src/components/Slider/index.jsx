@@ -73,11 +73,10 @@ function Slider() {
 
   return (
     <div className="slider-container">
-    <img 
-      src={images[(index + 1) % images.length]} 
-      alt="next" 
+    <div
       className="next-image" 
-    />
+      style={{ backgroundImage: `url(${images[(index + 1) % images.length]})` }}
+    ></div>
     <div
       className="image-part top-image" 
       style={{ backgroundImage: `url(${images[index]})` }}
