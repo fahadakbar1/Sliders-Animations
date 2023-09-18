@@ -1,15 +1,14 @@
 import "./index.css";
 import StrokedSquare from "../StrokedSquare";
 
-function ClickableBox({ image, onClick, strokeKey }) {
+function ClickableBox({ image, next, onClick, strokeKey }) {
   return (
     <div className="box-container" onClick={onClick}>
       <div className="box-inner-container">
-      <img 
-      src={image} 
-      alt="next" 
-      className="next-image" 
-    />
+    <div
+        className="next-image"
+        style={{ backgroundImage: `url(${next})` }}
+      ></div>
       <div
         className="box-image-part box-top-image"
         style={{ backgroundImage: `url(${image})` }}

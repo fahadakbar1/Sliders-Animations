@@ -88,6 +88,7 @@ function Slider() {
     ></div>
     <ClickableBox
       image={images[(index + 1) % images.length]}
+      next={images[(index + 2) % images.length]}
       onClick={nextImage}
       strokeKey={strokeKey} 
     />
