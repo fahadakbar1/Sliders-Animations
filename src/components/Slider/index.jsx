@@ -17,48 +17,54 @@ function Slider() {
   }, [strokeKey]);
 
   const nextImage = () => {
-    const topImageDiv = document.querySelector('.top-image');
-    const bottomImageDiv = document.querySelector('.bottom-image');
-    const boxTopImageDiv = document.querySelector('.box-top-image');
-  const boxBottomImageDiv = document.querySelector('.box-bottom-image');
-  
-    
-    topImageDiv.classList.add('slide-out');
-    bottomImageDiv.classList.add('slide-out');
-    boxTopImageDiv.classList.add('slide-out');
-  boxBottomImageDiv.classList.add('slide-out');
-  
+    const topImageDiv = document.querySelector(".top-image");
+    const bottomImageDiv = document.querySelector(".bottom-image");
+    const boxTopImageDiv = document.querySelector(".box-top-image");
+    const boxBottomImageDiv = document.querySelector(".box-bottom-image");
+
+    topImageDiv.classList.add("slide-out");
+    bottomImageDiv.classList.add("slide-out");
+    boxTopImageDiv.classList.add("slide-out");
+    boxBottomImageDiv.classList.add("slide-out");
+
     setTimeout(() => {
-      
       setIndex((prevIndex) => (prevIndex + 1) % images.length);
-      
-      topImageDiv.classList.add('no-transition');
-      bottomImageDiv.classList.add('no-transition');
-      topImageDiv.style.backgroundImage = `url(${images[(index + 1) % images.length]})`;
-      bottomImageDiv.style.backgroundImage = `url(${images[(index + 1) % images.length]})`;
-      topImageDiv.classList.remove('slide-out');
-      bottomImageDiv.classList.remove('slide-out');
-      
+
+      topImageDiv.classList.add("no-transition");
+      bottomImageDiv.classList.add("no-transition");
+      topImageDiv.style.backgroundImage = `url(${
+        images[(index + 1) % images.length]
+      })`;
+      bottomImageDiv.style.backgroundImage = `url(${
+        images[(index + 1) % images.length]
+      })`;
+      topImageDiv.classList.remove("slide-out");
+      bottomImageDiv.classList.remove("slide-out");
+
       void topImageDiv.offsetWidth;
 
-      topImageDiv.classList.remove('no-transition');
-      bottomImageDiv.classList.remove('no-transition');
+      topImageDiv.classList.remove("no-transition");
+      bottomImageDiv.classList.remove("no-transition");
 
-      boxTopImageDiv.classList.add('no-transition');
-      boxBottomImageDiv.classList.add('no-transition');
-      boxTopImageDiv.style.backgroundImage = `url(${images[(index + 1) % images.length]})`;
-      boxBottomImageDiv.style.backgroundImage = `url(${images[(index + 1) % images.length]})`;
-      boxTopImageDiv.classList.remove('slide-out');
-      boxBottomImageDiv.classList.remove('slide-out');
-      
+      boxTopImageDiv.classList.add("no-transition");
+      boxBottomImageDiv.classList.add("no-transition");
+      boxTopImageDiv.style.backgroundImage = `url(${
+        images[(index + 1) % images.length]
+      })`;
+      boxBottomImageDiv.style.backgroundImage = `url(${
+        images[(index + 1) % images.length]
+      })`;
+      boxTopImageDiv.classList.remove("slide-out");
+      boxBottomImageDiv.classList.remove("slide-out");
+
       void boxTopImageDiv.offsetWidth;
 
-      boxTopImageDiv.classList.remove('no-transition');
-      boxBottomImageDiv.classList.remove('no-transition');
+      boxTopImageDiv.classList.remove("no-transition");
+      boxBottomImageDiv.classList.remove("no-transition");
     }, 1000);
 
     setStrokeKey(strokeRef.current + 1);
-};
+  };
 
   useEffect(() => {
     const interval = setInterval(nextImage, 4000);
@@ -67,25 +73,27 @@ function Slider() {
 
   return (
     <div className="slider-container">
-    <div
-      className="next-image" 
-      style={{ backgroundImage: `url(${images[(index + 1) % images.length]})` }}
-    ></div>
-    <div
-      className="image-part top-image" 
-      style={{ backgroundImage: `url(${images[index]})` }}
-    ></div>
-    <div 
-      className="image-part bottom-image" 
-      style={{ backgroundImage: `url(${images[index]})` }}
-    ></div>
-    <ClickableBox
-      image={images[(index + 1) % images.length]}
-      next={images[(index + 2) % images.length]}
-      onClick={nextImage}
-      strokeKey={strokeKey} 
-    />
-  </div>
+      <div
+        className="next-image"
+        style={{
+          backgroundImage: `url(${images[(index + 1) % images.length]})`,
+        }}
+      ></div>
+      <div
+        className="image-part top-image"
+        style={{ backgroundImage: `url(${images[index]})` }}
+      ></div>
+      <div
+        className="image-part bottom-image"
+        style={{ backgroundImage: `url(${images[index]})` }}
+      ></div>
+      <ClickableBox
+        image={images[(index + 1) % images.length]}
+        next={images[(index + 2) % images.length]}
+        onClick={nextImage}
+        strokeKey={strokeKey}
+      />
+    </div>
   );
 }
 
