@@ -15,9 +15,9 @@
 
 .box-image-part {
   width: 100%;
-  height: 50%; /* Splitting the div into two equal parts */
-  background-size: 100% 200%; /* This ensures the background image covers the entire div */
-  transition: transform 1s; /* Sliding animation */
+  height: 50%;
+  background-size: 100% 200%;
+  transition: transform 1s;
 }
 
 .box-top-image {
@@ -28,13 +28,12 @@
   background-position: bottom;
 }
 
-/* When the animation is triggered */
 .box-container .box-image-part.box-top-image.slide-out {
-  transform: translateY(-100%); /* Slide the top part upwards */
+  transform: translateY(-100%);
 }
 
 .box-container .box-image-part.box-bottom-image.slide-out {
-  transform: translateY(100%); /* Slide the bottom part downwards */
+  transform: translateY(100%);
 }
 
 .no-transition {

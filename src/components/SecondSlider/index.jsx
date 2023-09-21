@@ -23,7 +23,6 @@ function SecondSlider() {
         trackMouse: true
     });
 
-    // This gets the correct images based on current index
     const displayedImages = [
         images[(currentIndex - 1 + images.length) % images.length],
         images[currentIndex],
